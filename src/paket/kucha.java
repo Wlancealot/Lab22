@@ -43,13 +43,14 @@ public class kucha {
                     String key1 = reader.readLine();
                     int key = Integer.parseInt(key1);
                     Gammo x = new Gammo(str, key);
-                    x.Print();
+                    x.PrintStrData();
                     System.out.println("Шифрование..");
                     x.SHIFR();
-                    x.Print();
+                    x.PrintEncrypted();
+                    x.PrintStrData();
                     System.out.println("Расшифровывание..");
                     x.DESHIFR();
-                    x.Print();
+                    x.PrintStrData();
                     break;
                 case 3:
                     ;

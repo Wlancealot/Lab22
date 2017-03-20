@@ -1,12 +1,13 @@
 package paket;
 
+import java.util.Arrays;
 import java.util.Random;
 
 
 public class Gammo {
     private String DATA;
     private int KEY;
-
+    private byte[] encryptedData;  // шифрованный массив байтов, нельзя из него строку создаввать
     Gammo() {
         this.DATA = "";
         this.KEY = 0;
@@ -19,7 +20,7 @@ public class Gammo {
 
     void SHIFR() {
         Random R = new Random(KEY);
-        byte[] X = DATA.getBytes(), Y = new byte[DATA.length()];
+        byte[] X = DATA.getBytes(), Y = new byte[X.length];
         byte Gamma;
         for (int i = 0; i < DATA.length(); i++) {
             Gamma = (byte) R.nextInt();
@@ -29,12 +30,15 @@ public class Gammo {
             Y[i] = (byte) (Y[i] << 1);
             Y[i] = (byte) (Y[i] | X[i]);
         }
-        DATA = new String(Y);
+        //DATA = new String(Y);
+        this.encryptedData = Y;  //
+        this.DATA = ""; //очистим строку , чтоб без обмана
     }
 
     void DESHIFR() {
         Random R = new Random(KEY);
-        byte[] X = DATA.getBytes(), Y = new byte[DATA.length()];
+        byte[] X = encryptedData;
+        byte[] Y = new byte[encryptedData.length];
         byte Gamma;
         for (int i = 0; i < DATA.length(); i++) {
             Y[i] = (byte) (X[i] & 0x01);
@@ -44,10 +48,13 @@ public class Gammo {
             Gamma = (byte) R.nextInt();
             Y[i] = (byte) (X[i] ^ Gamma);
         }
-        DATA = new String(Y);
+        this.DATA = new String(Y);
     }
 
-    void Print() {
+    void PrintStrData() {
         System.out.println("Строка: " + DATA);
+    }
+    void PrintEncrypted() {
+        System.out.println("Строка: " + Arrays.toString(encryptedData));
     }
 }
