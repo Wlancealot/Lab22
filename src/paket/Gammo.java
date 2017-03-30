@@ -22,7 +22,7 @@ public class Gammo {
         Random R = new Random(KEY);
         byte[] X = DATA.getBytes(), Y = new byte[X.length];
         byte Gamma;
-        for (int i = 0; i < DATA.length(); i++) {
+        for (int i = 0; i < X.length; i++) {
             Gamma = (byte) R.nextInt();
             Y[i] = (byte) (X[i] ^ Gamma);
             X[i] = (byte) (Y[i] & 0x80);
@@ -40,7 +40,7 @@ public class Gammo {
         byte[] X = encryptedData;
         byte[] Y = new byte[encryptedData.length];
         byte Gamma;
-        for (int i = 0; i < DATA.length(); i++) {
+        for (int i = 0; i < X.length; i++) {
             Y[i] = (byte) (X[i] & 0x01);
             Y[i] = (byte) (Y[i] << 7);
             X[i] = (byte) (X[i] >>> 1);
