@@ -42,7 +42,7 @@ public class kucha {
                     System.out.println("Ключ: ");
                     String key1 = reader.readLine();
                     int key = Integer.parseInt(key1);
-                    /*Gammo x = new Gammo(str, key);
+                    Gammo x = new Gammo(str, key);
                     x.PrintStrData();
                     System.out.println("Шифрование..");
                     x.SHIFR();
@@ -50,7 +50,7 @@ public class kucha {
                     x.PrintStrData();
                     System.out.println("Расшифровывание..");
                     x.DESHIFR();
-                    x.PrintStrData();*/
+                    x.PrintStrData();
                     break;
                 case 3:
                     ;
