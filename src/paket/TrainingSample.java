@@ -30,8 +30,10 @@ public class TrainingSample {
         int i = 5;
         i = 0x1E_EE_EE;
         //System.out.println(String.format("%032d", Integer.parseInt(Integer.toBinaryString(i))));
-        System.out.println(String.format("%032d", Integer.toBinaryString(i)));
+        System.out.println(i);
+        System.out.println(String.format("%1$32s", Integer.toBinaryString(i).replace(" ", "0")));
         i = tstEx.ROLCodePoint(i,2);
-        System.out.println(String.format("%032d", Integer.parseInt(Integer.toBinaryString(i))));
+        System.out.println(String.format("%1$32s", Integer.toBinaryString(i).replace(" ", "0")));
+        System.out.println(i);
     }
 }
